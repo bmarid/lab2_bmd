@@ -1,0 +1,38 @@
+<html>
+<body>
+<head>
+    <meta charset="UTF-8">
+    <title>bmaridLr2</title>
+</head>
+<body>
+<a href="/back/lab2_bmd.php">Reload</a><br>
+<?php
+//lr2
+//task - sum from 1 to 10 = 55
+$n = isset($_POST['n']) ? $_POST['n'] : null;
+if($n != null) {
+    if($n > 1) {
+        $sum = $n * ($n + 1) / 2;
+        echo "Your sum from 1 to {$n} = {$sum}<br>";
+    } else {
+        $sum=0;
+        for($i=1; $i >= $n; $i--){
+            $sum+=$i;
+//            echo $i.' ';
+        }
+        if($n==1) $sum=0;
+        echo "Your sum from 1 to {$n} = {$sum}<br>";
+    }
+}
+if(is_null($n)) {
+    ?>
+    <form method="POST" >
+        <hr>
+        Hello, write me n for count sum 1 to n..<br>
+        <input type="number" name="n" required><br>
+        <input type="submit" name="button" value="send"><br>
+    </form>
+    <?php
+}?>
+</body>
+</html>
